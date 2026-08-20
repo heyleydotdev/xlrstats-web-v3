@@ -42,8 +42,8 @@ class MonthlyStat extends AppModel {
  * Overrides __construct method to be able to use custom tables names
  */
 	public function __construct() {
-		$this->setSource(Configure::read('options.table_history_monthly'));
 		parent::__construct();
+		$this->setSource(Configure::read('options.table_history_monthly'));
 	}
 
 }
