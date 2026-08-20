@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `gamename` varchar(15) CHARACTER SET latin1 NOT NULL,
   `servername` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `servername_a` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `servername_a` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '',
   `dbhost` varchar(255) CHARACTER SET latin1 NOT NULL,
   `dbuser` varchar(50) CHARACTER SET latin1 NOT NULL,
   `dbpass` varchar(50) CHARACTER SET latin1 NOT NULL,
