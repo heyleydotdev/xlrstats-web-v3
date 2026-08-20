@@ -14,6 +14,7 @@
  */
 
 $pieChart = array();
+$charts = array();
 
 $pieChart['kills']['count'] = array_key_exists('Other', $topKillWeapons) ? count($topKillWeapons) - 1: count($topKillWeapons);
 $pieChart['deaths']['count'] = array_key_exists('Other', $topDeathWeapons) ? count($topDeathWeapons) - 1: count($topDeathWeapons);
