@@ -15,6 +15,16 @@
 
 $sortedAchievements = $achievements;
 arsort($sortedAchievements);
+
+if (empty($sortedAchievements)):
+	?>
+	<div class="alert">
+		<?php echo __('No achievements are available for this player yet'); ?>
+	</div>
+	<?php
+	return false;
+endif;
+
 //pr($sortedAchievements);
 
 /* Set the values for the achievements */
