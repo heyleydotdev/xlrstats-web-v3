@@ -681,20 +681,15 @@ $myPage = false;
 
 	// Tabs
 	$(function() {
-		$("#playerstats").tab(); // initialize tabs
-		$("#playerstats").bind("show", function(e) {
-			var contentID = $(e.target).attr("data-target");
+		$("#playerstats").on("show show.bs.tab", function(e) {
+			var contentID = $(e.target).attr("data-target") || $(e.target).attr("href");
 			var contentURL = $(e.target).attr("href");
 
-			if (typeof(contentURL) != 'undefined') {
+			if (typeof(contentURL) != 'undefined' && contentURL.indexOf('#') !== 0) {
 				// state: has a url to load from
-				$(contentID).load(contentURL, function(){
-					$("#playerstats").tab(); // reinitialize tabs
-				});
-			} else {
-				//state: no url, to show static data
-				$(contentID).tab('show');
+				$(contentID).load(contentURL);
 			}
+			// else: static pane, bootstrap switches it natively
 		});
 		$('#playerstats a:first').tab("show"); // Load and display content for first tab
 	});
