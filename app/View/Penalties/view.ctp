@@ -103,9 +103,7 @@
 <?php foreach ($penalties as $k => $v) { ?>
 
 	<!-- Modal -->
-	<div style="display:none;" id="penalty<?php echo $v['Penalty']['id']; ?>Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="penalty<?php echo $v['Penalty']['id']; ?>ModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
+	<div id="penalty<?php echo $v['Penalty']['id']; ?>Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="penalty<?php echo $v['Penalty']['id']; ?>ModalLabel" aria-hidden="true">
 		<div class="modal-header error">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h4 id="penalty<?php echo $v['Penalty']['id']; ?>ModalLabel"><?php echo __('Penalty issued to') ?> <?php echo $v['Player']['name'] ?> <?php echo __('on')?> <?php echo $this->Time->format('F jS, Y h:i A', $v['Penalty']['time_add'], null) ?></h4>
@@ -174,8 +172,6 @@
 			<span class="pull-left"><?php echo $disputeLink;?></span>
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 		</div>
-		</div>
-	</div>
 	</div>
 	<!-- Modal End -->
 <?php
