@@ -186,11 +186,34 @@ $lastChart = end($charts);
 	endforeach;
 ?>
 
-	/* Make sure modal box doesn't load the same content */
-	$('body').on('hidden', '.modal', function () {
-		$(this).removeData('modal');
+	/* Make sure modal box doesn't load the same content (Bootstrap 2 and 3 event names) */
+	$('body').on('hidden hidden.bs.modal', '.modal', function () {
+		$(this).removeData('modal').removeData('bs.modal');
 		/* add loading image */
 		$('#map-modal .modal-body').html('<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...');
+	});
+
+	/* Bootstrap 2/3 compatible remote modals: unblock the "hide" class and fetch
+	   content into .modal-body ourselves instead of relying on the version
+	   specific remote injection target */
+	$(function () {
+		$('.modal').removeClass('hide').css('display', 'none');
+	});
+
+	$('body').on('click', '[data-toggle="modal"][data-target]', function (e) {
+		var url = $(this).attr('href');
+		if (!url || url.charAt(0) === '#') {
+			return; // static modal, let bootstrap handle it
+		}
+		var $modal = $($(this).attr('data-target'));
+		if ($modal.length === 0) {
+			return;
+		}
+		e.preventDefault();
+		e.stopPropagation();
+		$modal.find('.modal-body').html('<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...');
+		$modal.modal('show');
+		$modal.find('.modal-body').load(url);
 	});
 </script>
 
