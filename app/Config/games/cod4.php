@@ -24,219 +24,228 @@ $config = array(
 		'3' => 'Marines / S.A.S.',	// Blue team
 		'-1' => 'Spectators'
 	),
+
+	'maps' => array(
+		//Map Image Path (empty = don't render map icons)
+		'image_path' => '',
+
+		//*********************
+		// Map names
+		//*********************
+		// Stock CoD4
+		'mp_backlot' => array('Backlot', 'description', 'mp_backlot.jpg'),
+		'mp_bloc' => array('Bloc', 'description', 'mp_bloc.jpg'),
+		'mp_bog' => array('Bog', 'description', 'mp_bog.jpg'),
+		'mp_cargoship' => array('Wet Work', 'description', 'mp_cargoship.jpg'),
+		'mp_citystreets' => array('City Streets', 'description', 'mp_citystreets.jpg'),
+		'mp_convoy' => array('Convoy', 'description', 'mp_convoy.jpg'),
+		'mp_countdown' => array('Countdown', 'description', 'mp_countdown.jpg'),
+		'mp_crash' => array('Crash', 'description', 'mp_crash.jpg'),
+		'mp_crossfire' => array('Crossfire', 'description', 'mp_crossfire.jpg'),
+		'mp_farm' => array('Down Pour', 'description', 'mp_farm.jpg'),
+		'mp_overgrown' => array('Overgrown', 'description', 'mp_overgrown.jpg'),
+		'mp_pipeline' => array('Pipeline', 'description', 'mp_pipeline.jpg'),
+		'mp_shipment' => array('Shipment', 'description', 'mp_shipment.jpg'),
+		'mp_showdown' => array('Showdown', 'description', 'mp_showdown.jpg'),
+		'mp_strike' => array('Strike', 'description', 'mp_strike.jpg'),
+		'mp_vacant' => array('Vacant', 'description', 'mp_vacant.jpg'),
+		'mp_crash_snow' => array('Winter Crash', 'description', 'mp_crash_snow.jpg'),
+		'mp_carentan' => array('China Town', 'description', 'mp_carentan.jpg'),
+		'mp_creek' => array('Creek', 'description', 'mp_creek.jpg'),
+		'mp_broadcast' => array('Broadcast', 'description', 'mp_broadcast.jpg'),
+		'mp_killhouse' => array('Killhouse', 'description', 'mp_killhouse.jpg'),
+
+		// Custom Maps
+		'mp_backlot_night' => array('Backlot (Night)', 'description', 'mp_backlot_night.jpg'),
+		'mp_village' => array('Village', 'description', 'mp_village.jpg'),
+		'mp_village_night' => array('Village (Night)', 'description', 'mp_village_night.jpg'),
+		'mp_qmx_matmata' => array('Matmata', 'description', 'mp_qmx_matmata.jpg'),
+
+		'unknown' => array('Custom Map', 'description', 'unknown.jpg'),
+		'None' => array('-Unknown-', 'description', 'None.jpg'),
+	),
+
+	'weapons' => array(
+		//Weapon Image Path (empty = don't render weapon icons)
+		'image_path' => '',
+
+		//*********************
+		// Weapons names
+		//*********************
+		//Stock CoD4
+		'ac130_25mm_mp' => array('AC 130 25mm', 'description', 'ac130_25mm_mp.png'),
+		'ac130_40mm_mp' => array('AC 130 40mm', 'description', 'ac130_40mm_mp.png'),
+		'ac130_105mm_mp' => array('AC 130 105mm', 'description', 'ac130_105mm_mp.png'),
+		'airstrike_mp' => array('Air Strike', 'description', 'airstrike_mp.png'),
+		'ak47_acog_mp' => array('AK-47 ACOG', 'description', 'ak47_acog_mp.png'),
+		'ak47_gl_mp' => array('AK-47 Grenade Launcher', 'description', 'ak47_gl_mp.png'),
+		'ak47_mp' => array('AK-47', 'description', 'ak47_mp.png'),
+		'ak47_reflex_mp' => array('AK-47 Reflex', 'description', 'ak47_reflex_mp.png'),
+		'ak74u_acog_mp' => array('AK-74u ACOG', 'description', 'ak74u_acog_mp.png'),
+		'ak74u_mp' => array('AK-74u', 'description', 'ak74u_mp.png'),
+		'ak47_silencer_mp' => array('AK-47 Silencer', 'description', 'ak47_silencer_mp.png'),
+		'ak74u_reflex_mp' => array('AK-74u Reflex', 'description', 'ak74u_reflex_mp.png'),
+		'ak74u_silencer_mp' => array('AK74u Silencer', 'description', 'ak74u_silencer_mp.png'),
+		'artillery_mp' => array('Artillery', 'description', 'artillery_mp.png'),
+		'at4_mp' => array('AT4', 'description', 'at4_mp.png'),
+		'aw50_acog_mp' => array('AW-50 ACOG', 'description', 'aw50_acog_mp.png'),
+		'aw50_mp' => array('AW-50', 'description', 'aw50_mp.png'),
+		'barrett_acog_mp' => array('Barrett-50 ACOG', 'description', 'barrett_acog_mp.png'),
+		'barrett_mp' => array('Barrett-50', 'description', 'barrett_mp.png'),
+		'beretta_mp' => array('Beretta', 'description', 'beretta_mp.png'),
+		'beretta_silencer_mp' => array('Beretta Silencer', 'description', 'beretta_silencer_mp.png'),
+		'binoculars_mp' => array('Binoculars', 'description', 'binoculars_mp.png'),
+		'brick_blaster_mp' => array('Brick Blaster', 'description', 'brick_blaster_mp.png'),
+		'brick_bomb_mp' => array('Brick Bomb', 'description', 'brick_bomb_mp.png'),
+		'briefcase_bomb_defuse_mp' => array('Bomb Defuse', 'description', 'briefcase_bomb_defuse_mp.png'),
+		'briefcase_bomb_mp' => array('Bomb Set', 'description', 'briefcase_bomb_mp.png'),
+		'c4_mp' => array('C-4', 'description', 'c4_mp.png'),
+		'claymore_mp' => array('Claymore Mine', 'description', 'claymore_mp.png'),
+		'cobra_20mm_mp' => array('Cobra 20mm', 'description', 'cobra_20mm_mp.png'),
+		'cobra_ffar_mp' => array('Cobra Rocket', 'description', 'cobra_ffar_mp.png'),
+		'colt45_mp' => array('Colt .45', 'description', 'colt45_mp.png'),
+		'colt45_silencer_mp' => array('Colt .45 Silencer', 'description', 'colt45_silencer_mp.png'),
+		'concussion_grenade_mp' => array('Concussion Grenade', 'description', 'concussion_grenade_mp.png'),
+		'defaultweapon_mp' => array('Default Weapon', 'description', 'defaultweapon_mp.png'),
+		'deserteagle_mp' => array('Colt Desert Eagle', 'description', 'deserteagle_mp.png'),
+		'deserteaglegold_mp' => array('Colt Desert Eagle Gold', 'description', 'deserteaglegold_mp.png'),
+		'destructible_car' => array('Exploding Vehicle', 'description', 'destructible_car.png'),
+		'dragunov_acog_mp' => array('Dragunov ACOG', 'description', 'dragunov_acog_mp.png'),
+		'dragunov_mp' => array('Dragunov', 'description', 'dragunov_mp.png'),
+		'flash_grenade_mp' => array('Flash Grenade', 'description', 'flash_grenade_mp.png'),
+		'frag_grenade_mp' => array('Frag Grenade', 'description', 'frag_grenade_mp.png'),
+		'frag_grenade_short_mp' => array('Short Fuse Frag Grenade', 'description', 'frag_grenade_short_mp.png'),
+		'g3_acog_mp' => array('G3 ACOG', 'description', 'g3_acog_mp.png'),
+		'g3_gl_mp' => array('G3 Grenade Launcher', 'description', 'g3_gl_mp.png'),
+		'g3_mp' => array('G3', 'description', 'g3_mp.png'),
+		'g3_reflex_mp' => array('G3 Reflex', 'description', 'g3_reflex_mp.png'),
+		'g3_silencer_mp' => array('G3 Silencer', 'description', 'g3_silencer_mp.png'),
+		'g36c_acog_mp' => array('G36c ACOG', 'description', 'g36c_acog_mp.png'),
+		'g36c_gl_mp' => array('G36c Grenade Launcher', 'description', 'g36c_gl_mp.png'),
+		'g36c_mp' => array('G36c', 'description', 'g36c_mp.png'),
+		'g36c_reflex_mp' => array('G36c Reflex', 'description', 'g36c_reflex_mp.png'),
+		'g36c_silencer_mp' => array('G36c Silencer', 'description', 'g36c_silencer_mp.png'),
+		'gl_ak47_mp' => array('Grenade Launcher AK-47', 'description', 'gl_ak47_mp.png'),
+		'gl_g3_mp' => array('Grenade Launcher G3', 'description', 'gl_g3_mp.png'),
+		'gl_g36c_mp' => array('Grenade Launcher G36c', 'description', 'gl_g36c_mp.png'),
+		'gl_m4_mp' => array('Grenade Launcher M4', 'description', 'gl_m4_mp.png'),
+		'gl_m14_mp' => array('Grenade Launcher M14', 'description', 'gl_m14_mp.png'),
+		'gl_m16_mp' => array('Grenade Launcher M16', 'description', 'gl_m16_mp.png'),
+		'gl_mp' => array('Grenade Launcher', 'description', 'gl_mp.png'),
+		'helicopter_mp' => array('Helicopter', 'description', 'helicopter_mp.png'),
+		'hind_ffar_mp' => array('HIND Rocket', 'description', 'hind_ffar_mp.png'),
+		'humvee_50cal_mp' => array('Humvee .50 cal.', 'description', 'humvee_50cal_mp.png'),
+		'TT30_mp' => array('TT 30', 'description', 'TT30_mp.png'),
+		'location_selector_mp' => array('Location Selector', 'description', 'location_selector_mp.png'),
+		'm4_acog_mp' => array('M4 ACOG', 'description', 'm4_acog_mp.png'),
+		'm4_gl_mp' => array('M4 Grenade Launcher', 'description', 'm4_gl_mp.png'),
+		'm4_mp' => array('M4', 'description', 'm4_mp.png'),
+		'm4_reflex_mp' => array('M4 Reflex', 'description', 'm4_reflex_mp.png'),
+		'm4_silencer_mp' => array('M4 Silencer', 'description', 'm4_silencer_mp.png'),
+		'm14_acog_mp' => array('M14 ACOG', 'description', 'm14_acog_mp.png'),
+		'landmine_mp' => array('Landmine', 'description', 'landmine_mp.png'),
+		'm14_gl_mp' => array('M14 Grenade Launcher', 'description', 'm14_gl_mp.png'),
+		'm14_mp' => array('M14', 'description', 'm14_mp.png'),
+		'm14_reflex_mp' => array('M14 Reflex', 'description', 'm14_reflex_mp.png'),
+		'm14_silencer_mp' => array('M14 Silencer', 'description', 'm14_silencer_mp.png'),
+		'm16_acog_mp' => array('M16 ACOG', 'description', 'm16_acog_mp.png'),
+		'm16_gl_mp' => array('M16 Grenade Launcher', 'description', 'm16_gl_mp.png'),
+		'm16_mp' => array('M16', 'description', 'm16_mp.png'),
+		'm16_reflex_mp' => array('M16 Reflex', 'description', 'm16_reflex_mp.png'),
+		'm16_silencer_mp' => array('M16 Silencer', 'description', 'm16_silencer_mp.png'),
+		'm21_acog_mp' => array('M21 ACOG', 'description', 'm21_acog_mp.png'),
+		'm21_mp' => array('M21', 'description', 'm21_mp.png'),
+		'm40a3_acog_mp' => array('M40A3 ACOG', 'description', 'm40a3_acog_mp.png'),
+		'm40a3_mp' => array('M40A3', 'description', 'm40a3_mp.png'),
+		'm60e4_acog_mp' => array('M60E4 ACOG', 'description', 'm60e4_acog_mp.png'),
+		'm60e4_grip_mp' => array('M60E4 Grip', 'description', 'm60e4_grip_mp.png'),
+		'm60e4_mp' => array('M60E4', 'description', 'm60e4_mp.png'),
+		'm60e4_reflex_mp' => array('M60E4 Reflex', 'description', 'm60e4_reflex_mp.png'),
+		'm1014_grip_mp' => array('M1014 Grip', 'description', 'm1014_grip_mp.png'),
+		'm1014_mp' => array('M1014', 'description', 'm1014_mp.png'),
+		'm1014_reflex_mp' => array('M1014 Reflex', 'description', 'm1014_reflex_mp.png'),
+		'mp5_acog_mp' => array('MP5 ACOG', 'description', 'mp5_acog_mp.png'),
+		'mp5_mp' => array('MP5', 'description', 'mp5_mp.png'),
+		'mp5_reflex_mp' => array('MP5 Reflex', 'description', 'mp5_reflex_mp.png'),
+		'mp5_silencer_mp' => array('MP5 Silencer', 'description', 'mp5_silencer_mp.png'),
+		'mp44_mp' => array('MP44', 'description', 'mp44_mp.png'),
+		'p90_acog_mp' => array('P90 ACOG', 'description', 'p90_acog_mp.png'),
+		'p90_mp' => array('P90', 'description', 'p90_mp.png'),
+		'p90_reflex_mp' => array('P90 Reflex', 'description', 'p90_reflex_mp.png'),
+		'p90_silencer_mp' => array('P90 Silencer', 'description', 'p90_silencer_mp.png'),
+		'radar_mp' => array('Radar', 'description', 'radar_mp.png'),
+		'remington700_acog_mp' => array('Remington 700 ACOG', 'description', 'remington700_acog_mp.png'),
+		'remington700_mp' => array('Remington 700', 'description', 'remington700_mp.png'),
+		'rpd_acog_mp' => array('RPD ACOG', 'description', 'rpd_acog_mp.png'),
+		'rpd_grip_mp' => array('RPD Grip', 'description', 'rpd_grip_mp.png'),
+		'rpd_mp' => array('RPD', 'description', 'rpd_mp.png'),
+		'rpd_reflex_mp' => array('RPD Reflex', 'description', 'rpd_reflex_mp.png'),
+		'rpg_mp' => array('RPG', 'description', 'rpg_mp.png'),
+		'saw_acog_mp' => array('SAW ACOG', 'description', 'saw_acog_mp.png'),
+		'saw_bipod_crouch_mp' => array('SAW Bipod Crouched', 'description', 'saw_bipod_crouch_mp.png'),
+		'saw_bipod_prone_mp' => array('SAW Bipod Prone', 'description', 'saw_bipod_prone_mp.png'),
+		'saw_bipod_stand_mp' => array('SAW Bipod Standing', 'description', 'saw_bipod_stand_mp.png'),
+		'saw_grip_mp' => array('SAW Grip', 'description', 'saw_grip_mp.png'),
+		'saw_mp' => array('SAW', 'description', 'saw_mp.png'),
+		'saw_reflex_mp' => array('SAW Reflex', 'description', 'saw_reflex_mp.png'),
+		'skorpion_acog_mp' => array('Skorpion ACOG', 'description', 'skorpion_acog_mp.png'),
+		'skorpion_mp' => array('Skorpion', 'description', 'skorpion_mp.png'),
+		'skorpion_reflex_mp' => array('Skorpion Reflex', 'description', 'skorpion_reflex_mp.png'),
+		'skorpion_silencer_mp' => array('Skorpion Silencer', 'description', 'skorpion_silencer_mp.png'),
+		'smoke_grenade_mp' => array('Smoke Grenade', 'description', 'smoke_grenade_mp.png'),
+		'usp_mp' => array('USP', 'description', 'usp_mp.png'),
+		'usp_silencer_mp' => array('USP Silencer', 'description', 'usp_silencer_mp.png'),
+		'uzi_acog_mp' => array('UZI ACOG', 'description', 'uzi_acog_mp.png'),
+		'uzi_mp' => array('UZI', 'description', 'uzi_mp.png'),
+		'uzi_reflex_mp' => array('UZI Reflex', 'description', 'uzi_reflex_mp.png'),
+		'uzi_silencer_mp' => array('UZI Silencer', 'description', 'uzi_silencer_mp.png'),
+		'winchester1200_grip_mp' => array('Winchester 1200 Grip', 'description', 'winchester1200_grip_mp.png'),
+		'winchester1200_mp' => array('Winchester 1200', 'description', 'winchester1200_mp.png'),
+		'winchester1200_reflex_mp' => array('Winchester 1200 Reflex', 'description', 'winchester1200_reflex_mp.png'),
+		'mod_melee' => array('Knife', 'description', 'mod_melee.png'),
+		'mod_falling' => array('Falling', 'description', 'mod_falling.png'),
+
+		//No weapon?
+		'none' => array('Bad luck...', 'description', 'image.png'),
+	),
+
+	'events' => array(
+
+		//*********************
+		// Event names
+		//*********************
+		'bomb_plant' => array('Bomb Plant', 'description', 'image.png'),
+		'bomb_defuse' => array('Bomb Defuse', 'description', 'image.png'),
+		're_pickup' => array('Pickup', 'description', 'image.png'),
+		're_capture' => array('Capture', 'description', 'image.png'),
+		're_drop' => array('Drop', 'description', 'image.png'),
+	),
+
+	/**
+	 * Bodypart names
+	 */
+	'body_parts' => array(
+		/**
+		 * fixed_name => array ('console_name' => 'Easy Name')
+		 * DO NOT CHANGE 'fixed_name's
+		 */
+		'head' => array('head' => 'Head'),
+		'neck' => array('neck' => 'Neck'),
+		'torso_lower' => array('torso_lower' => 'Lower torso'),
+		'torso_upper' => array('torso_upper' => 'Upper torso'),
+		'left_arm_upper' => array('left_arm_upper' => 'Upper left arm'),
+		'left_arm_lower' => array('left_arm_lower' => 'Lower left arm'),
+		'left_hand' => array('left_hand' => 'Left hand'),
+		'right_arm_upper' => array('right_arm_upper' => 'Upper right arm'),
+		'right_arm_lower' => array('right_arm_lower' => 'Lower right arm'),
+		'right_hand' => array('right_hand' => 'Right hand'),
+		'left_leg_upper' => array('left_leg_upper' => 'Upper left leg'),
+		'left_leg_lower' => array('left_leg_lower' => 'Lower left leg'),
+		'left_foot' => array('left_foot' => 'Left foot'),
+		'right_leg_upper' => array('right_leg_upper' => 'Upper right leg'),
+		'right_leg_lower' => array('right_leg_lower' => 'Lower right leg'),
+		'right_foot' => array('right_foot' => 'Right foot'),
+		'none' => array('none' => 'Total disruption'),
+	),
+
 );
-/*
-//*********************
-// These are the standard cod4 settings
-//*********************
-
-// Teamnames and colors
-$team1 = "OpFor / Spetznaz"; // red team
-$team2 = "Marines / S.A.S."; // blue team
-$spectators = "Spectators";
-
-
-//*********************
-// Weapons names
-//*********************
-//Stock CoD4
-$w['ac130_25mm_mp'] = "AC 130 25mm";
-$w['ac130_40mm_mp'] = "AC 130 40mm";
-$w['ac130_105mm_mp'] = "AC 130 105mm";
-$w['airstrike_mp'] = "Air Strike";
-$w['ak47_acog_mp'] = "AK-47 ACOG";
-$w['ak47_gl_mp'] = "AK-47 Grenade Launcher";
-$w['ak47_mp'] = "AK-47";
-$w['ak47_reflex_mp'] = "AK-47 Reflex";
-$w['ak74u_acog_mp'] = "AK-74u ACOG";
-$w['ak74u_mp'] = "AK-74u";
-$w['ak47_silencer_mp'] = "AK-47 Silencer";
-$w['ak74u_reflex_mp'] = "AK-74u Reflex";
-$w['ak74u_silencer_mp'] = "AK74u Silencer";
-$w['artillery_mp'] = "Artillery";
-$w['at4_mp'] = "AT4";
-$w['aw50_acog_mp'] = "AW-50 ACOG";
-$w['aw50_mp'] = "AW-50";
-$w['barrett_acog_mp'] = "Barrett-50 ACOG";
-$w['barrett_mp'] = "Barrett-50";
-$w['beretta_mp'] = "Beretta";
-$w['beretta_silencer_mp'] = "Beretta Silencer";
-$w['binoculars_mp'] = "Binoculars";
-$w['brick_blaster_mp'] = "Brick Blaster";
-$w['brick_bomb_mp'] = "Brick Bomb";
-$w['briefcase_bomb_defuse_mp'] = "Bomb Defuse";
-$w['briefcase_bomb_mp'] = "Bomb Set";
-$w['c4_mp'] = "C-4";
-$w['claymore_mp'] = "Claymore Mine";
-$w['cobra_20mm_mp'] = "Cobra 20mm";
-$w['cobra_ffar_mp'] = "Cobra Rocket";
-$w['colt45_mp'] = "Colt .45";
-$w['colt45_silencer_mp'] = "Colt .45 Silencer";
-$w['concussion_grenade_mp'] = "Concussion Grenade";
-$w['defaultweapon_mp'] = "Default Weapon";
-$w['deserteagle_mp'] = "Colt Desert Eagle";
-$w['deserteaglegold_mp'] = "Colt Desert Eagle Gold";
-$w['destructible_car'] = "Exploding Vehicle";
-$w['dragunov_acog_mp'] = "Dragunov ACOG";
-$w['dragunov_mp'] = "Dragunov";
-$w['flash_grenade_mp'] = "Flash Grenade";
-$w['frag_grenade_mp'] = "Frag Grenade";
-$w['frag_grenade_short_mp'] = "Short Fuse Frag Grenade";
-$w['g3_acog_mp'] = "G3 ACOG";
-$w['g3_gl_mp'] = "G3 Grenade Launcher";
-$w['g3_mp'] = "G3";
-$w['g3_reflex_mp'] = "G3 Reflex";
-$w['g3_silencer_mp'] = "G3 Silencer";
-$w['g36c_acog_mp'] = "G36c ACOG";
-$w['g36c_gl_mp'] = "G36c Grenade Launcher";
-$w['g36c_mp'] = "G36c";
-$w['g36c_reflex_mp'] = "G36c Reflex";
-$w['g36c_silencer_mp'] = "G36c Silencer";
-$w['gl_ak47_mp'] = "Grenade Launcher AK-47";
-$w['gl_g3_mp'] = "Grenade Launcher G3";
-$w['gl_g36c_mp'] = "Grenade Launcher G36c";
-$w['gl_m4_mp'] = "Grenade Launcher M4";
-$w['gl_m14_mp'] = "Grenade Launcher M14";
-$w['gl_m16_mp'] = "Grenade Launcher M16";
-$w['gl_mp'] = "Grenade Launcher";
-$w['helicopter_mp'] = "Helicopter";
-$w['hind_ffar_mp'] = "HIND Rocket";
-$w['humvee_50cal_mp'] = "Humvee .50 cal.";
-$w['TT30_mp'] = "TT 30";
-$w['location_selector_mp'] = "Location Selector";
-$w['m4_acog_mp'] = "M4 ACOG";
-$w['m4_gl_mp'] = "M4 Grenade Launcher";
-$w['m4_mp'] = "M4";
-$w['m4_reflex_mp'] = "M4 Reflex";
-$w['m4_silencer_mp'] = "M4 Silencer";
-$w['m14_acog_mp'] = "M14 ACOG";
-$w['landmine_mp'] = "Landmine";
-$w['m14_gl_mp'] = "M14 Grenade Launcher";
-$w['m14_mp'] = "M14";
-$w['m14_reflex_mp'] = "M14 Reflex";
-$w['m14_silencer_mp'] = "M14 Silencer";
-$w['m16_acog_mp'] = "M16 ACOG";
-$w['m16_gl_mp'] = "M16 Grenade Launcher";
-$w['m16_mp'] = "M16";
-$w['m16_reflex_mp'] = "M16 Reflex";
-$w['m16_silencer_mp'] = "M16 Silencer";
-$w['m21_acog_mp'] = "M21 ACOG";
-$w['m21_mp'] = "M21";
-$w['m40a3_acog_mp'] = "M40A3 ACOG";
-$w['m40a3_mp'] = "M40A3";
-$w['m60e4_acog_mp'] = "M60E4 ACOG";
-$w['m60e4_grip_mp'] = "M60E4 Grip";
-$w['m60e4_mp'] = "M60E4";
-$w['m60e4_reflex_mp'] = "M60E4 Reflex";
-$w['m1014_grip_mp'] = "M1014 Grip";
-$w['m1014_mp'] = "M1014";
-$w['m1014_reflex_mp'] = "M1014 Reflex";
-$w['mp5_acog_mp'] = "MP5 ACOG";
-$w['mp5_mp'] = "MP5";
-$w['mp5_reflex_mp'] = "MP5 Reflex";
-$w['mp5_silencer_mp'] = "MP5 Silencer";
-$w['mp44_mp'] = "MP44";
-$w['p90_acog_mp'] = "P90 ACOG";
-$w['p90_mp'] = "P90";
-$w['p90_reflex_mp'] = "P90 Reflex";
-$w['p90_silencer_mp'] = "P90 Silencer";
-$w['radar_mp'] = "Radar";
-$w['remington700_acog_mp'] = "Remington 700 ACOG";
-$w['remington700_mp'] = "Remington 700";
-$w['rpd_acog_mp'] = "RPD ACOG";
-$w['rpd_grip_mp'] = "RPD Grip";
-$w['rpd_mp'] = "RPD";
-$w['rpd_reflex_mp'] = "RPD Reflex";
-$w['rpg_mp'] = "RPG";
-$w['saw_acog_mp'] = "SAW ACOG";
-$w['saw_bipod_crouch_mp'] = "SAW Bipod Crouched";
-$w['saw_bipod_prone_mp'] = "SAW Bipod Prone";
-$w['saw_bipod_stand_mp'] = "SAW Bipod Standing";
-$w['saw_grip_mp'] = "SAW Grip";
-$w['saw_mp'] = "SAW";
-$w['saw_reflex_mp'] = "SAW Reflex";
-$w['skorpion_acog_mp'] = "Skorpion ACOG";
-$w['skorpion_mp'] = "Skorpion";
-$w['skorpion_reflex_mp'] = "Skorpion Reflex";
-$w['skorpion_silencer_mp'] = "Skorpion Silencer";
-$w['smoke_grenade_mp'] = "Smoke Grenade";
-$w['usp_mp'] = "USP";
-$w['usp_silencer_mp'] = "USP Silencer";
-$w['uzi_acog_mp'] = "UZI ACOG";
-$w['uzi_mp'] = "UZI";
-$w['uzi_reflex_mp'] = "UZI Reflex";
-$w['uzi_silencer_mp'] = "UZI Silencer";
-$w['winchester1200_grip_mp'] = "Winchester 1200 Grip";
-$w['winchester1200_mp'] = "Winchester 1200";
-$w['winchester1200_reflex_mp'] = "Winchester 1200 Reflex";
-$w['mod_melee'] = "Knife";
-$w['mod_falling'] = "Falling";
-
-//No weapon?
-$w['none'] = "Bad luck...";
-
-//*********************
-// Map names
-//*********************
-// Stock CoD4
-$m['mp_backlot'] = "Backlot";
-$m['mp_bloc'] = "Bloc";
-$m['mp_bog'] = "Bog";
-$m['mp_cargoship'] = "Wet Work";
-$m['mp_citystreets'] = "City Streets";
-$m['mp_convoy'] = "Convoy";
-$m['mp_countdown'] = "Countdown";
-$m['mp_crash'] = "Crash";
-$m['mp_crossfire'] = "Crossfire";
-$m['mp_farm'] = "Down Pour";
-$m['mp_overgrown'] = "Overgrown";
-$m['mp_pipeline'] = "Pipeline";
-$m['mp_shipment'] = "Shipment";
-$m['mp_showdown'] = "Showdown";
-$m['mp_strike'] = "Strike";
-$m['mp_vacant'] = "Vacant";
-$m['mp_crash_snow'] = "Winter Crash";
-$m['mp_carentan'] = "China Town";
-$m['mp_creek'] = "Creek";
-$m['mp_broadcast'] = "Broadcast";
-$m['mp_killhouse'] = "Killhouse";
-
-
-// Custom Maps
-$m['mp_backlot_night'] = "Backlot (Night)";
-$m['mp_village'] = "Village";
-$m['mp_village_night'] = "Village (Night)";
-$m['mp_qmx_matmata'] = "Matmata";
-
-//*********************
-// Event names
-//*********************
-$e['bomb_plant'] = "Bomb Plant";
-$e['bomb_defuse'] = "Bomb Defuse";
-$e['re_pickup'] = "Pickup";
-$e['re_capture'] = "Capture";
-$e['re_drop'] = "Drop";
-
-
-//*********************
-// Bodypart names
-//*********************
-$b['head'] = $text["head"];
-$b['neck'] = $text["neck"];
-$b['torso_lower'] = $text["torso_lower"];
-$b['torso_upper'] = $text["torso_upper"];
-$b['left_arm_upper'] = $text["left_arm_upper"];
-$b['left_arm_lower'] = $text["left_arm_lower"];
-$b['left_hand'] = $text["left_hand"];
-$b['right_arm_upper'] = $text["right_arm_upper"];
-$b['right_arm_lower'] = $text["right_arm_lower"];
-$b['right_hand'] = $text["right_hand"];
-$b['left_leg_upper'] = $text["left_leg_upper"];
-$b['left_leg_lower'] = $text["left_leg_lower"];
-$b['left_foot'] = $text["left_foot"];
-$b['right_leg_upper'] = $text["right_leg_upper"];
-$b['right_leg_lower'] = $text["right_leg_lower"];
-$b['right_foot'] = $text["right_foot"];
-$b['none'] = $text["totaldisrupt"];
-
-*/

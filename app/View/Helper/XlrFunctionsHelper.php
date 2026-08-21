@@ -202,6 +202,9 @@ class XlrfunctionsHelper extends Helper {
 		}
 
 		$imagePath = Configure::read('weapons.image_path');
+		if (empty($imagePath)) {
+			return false;
+		}
 		$weaponImage = $imagePath . $weaponImage;
 
 		$imageLink = $this->Html->image($weaponImage, $options);
@@ -257,8 +260,10 @@ class XlrfunctionsHelper extends Helper {
 
 /**
  * Returns easy map name from the game config file.
- * If an easy name is not defined for the map, then it returns
- * the console name.
+ * If an easy name is not defined for the map, CoD style console names
+ * (mp_map_name) are prettified: the mp_ prefix is stripped, underscores
+ * are replaced by spaces and each word is capitalized. Any other name
+ * is returned as is.
  *
  * @param $map console name of the map
  * @return string
@@ -268,6 +273,9 @@ class XlrfunctionsHelper extends Helper {
 
 		if (!$mapName) {
 			$mapName = $map;
+			if (preg_match('/^mp_/', $map)) {
+				$mapName = ucwords(str_replace('_', ' ', substr($map, 3)));
+			}
 		}
 		return $mapName;
 	}
@@ -298,6 +306,9 @@ class XlrfunctionsHelper extends Helper {
 		}
 
 		$imagePath = Configure::read('maps.image_path');
+		if (empty($imagePath)) {
+			return false;
+		}
 		$mapImage = $imagePath . $mapImage;
 
 		$imageOptions = array();
