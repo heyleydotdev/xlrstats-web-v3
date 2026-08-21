@@ -182,7 +182,7 @@ $lastChart = end($charts);
 	?>
 
 	/* Make sure modal box doesn't load the same content */
-	$('body').on('hidden', '.modal', function () {
+	$('body').on('hidden hidden.bs.modal', '.modal', function () {
 		$(this).removeData('modal');
 		/* add loading image */
 		$('#weapon-modal .modal-body').html('<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...');
@@ -235,13 +235,17 @@ $lastChart = end($charts);
 </div>
 
 <!-- Modal Window Starts -->
-<div style="min-width:700px;" id="weapon-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div style="min-width:700px;display:none;" id="weapon-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-	<div class="modal-body">
-		<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- /Modal Window Ends -->
