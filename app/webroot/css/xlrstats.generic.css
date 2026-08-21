@@ -1369,6 +1369,8 @@ div.inner-details { display: none }
 .playerstats div.dataTables_paginate { font-size: 11px; float: right; margin: -20px 0 0 }
 .comparison-icon i { color: #000000; cursor: pointer; margin: 0 3px 0 5px }
 .charts-container { border-left: 1px solid #e2e3e5; padding-left: 10px }
+.chart-placeholder { display: table; width: 100% }
+.chart-placeholder p { display: table-cell; vertical-align: middle; text-align: center; color: #999999; font-size: 13px }
 .hit-zones-bg { background: url("../img/soldier-model.jpg") no-repeat center; height: 562px; width: 485px; position: relative; border: 1px solid #ededed; padding: 40px 0 }
 .hit-zones { background: none repeat scroll 0 0 #ff0000; border: 1px solid #ffffff; border-radius: 50% 50% 50% 50%; cursor: pointer; height: 15px; width: 15px; position: absolute }
 .hit-zones.helmet { left: 234px; top: 60px }

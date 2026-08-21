@@ -54,12 +54,9 @@ $pieChart['teamkills']['title'] = __('Top %s Maps You Team Kill With', $pieChart
 $pieChart['teamdeaths']['title'] = __('Top %s Maps You Get Team Killed With', $pieChart['teamdeaths']['count']);
 $pieChart['suicides']['title'] = __('Top %s Maps You Suicide With', $pieChart['suicides']['count']);
 
-// Last pie chart. We'll use this to draw a border bottom or not
-foreach ($pieChart as $key => $value) {
-	if ($value['count'] > 0) {
-		$charts[] = $key;
-	}
-}
+// Last pie chart. We'll use this to draw a border bottom or not.
+// Charts without data are rendered as placeholders, so every section counts.
+$charts = array_keys($pieChart);
 $lastChart = end($charts);
 
 ?>
@@ -250,14 +247,18 @@ $lastChart = end($charts);
 	<div class="span4 charts-container">
 		<?php
 		foreach($pieChart as $key => $value):
+			if($key != $lastChart):
+				$borderBottom = 'border-bottom: 1px solid #EEEDEC;';
+			else:
+				$borderBottom = null;
+			endif;
 			if($value['count'] > 0):
-				if($key != $lastChart):
-					$borderBottom = 'border-bottom: 1px solid #EEEDEC;';
-				else:
-					$borderBottom = null;
-				endif;
 				?>
 				<div id="<?php echo $key . '-maps'; ?>" style="height: 250px; margin: 0 auto; <?php echo $borderBottom; ?>"></div>
+			<?php else: ?>
+				<div id="<?php echo $key . '-maps'; ?>-placeholder" class="chart-placeholder" style="height: 250px; <?php echo $borderBottom; ?>">
+					<p><?php echo __('No data available yet'); ?></p>
+				</div>
 			<?php
 			endif;
 		endforeach; ?>
