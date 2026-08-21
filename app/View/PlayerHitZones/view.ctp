@@ -32,6 +32,12 @@
 				<th><?php echo __('Deaths'); ?></th>
 			</thead>
 			<?php
+			if (empty($hitZones)): ?>
+			<tr class="no-data-row">
+				<td colspan="3"><?php echo __('No data available yet'); ?></td>
+			</tr>
+			<?php
+			else:
 			foreach ($hitZones as $hitZone):
 				$bodyPart = $this->XlrFunctions->getBodyPartname($hitZone['BodyPart']['name']);
 			?>
@@ -41,7 +47,8 @@
 				<td><?php echo $hitZone['PlayerHitZone']['deaths']; ?></td>
 			</tr>
 			<?php
-			endforeach; ?>
+			endforeach;
+			endif; ?>
 		</table>
 	</div>
 	<div class="span6" style="width:485px";>
