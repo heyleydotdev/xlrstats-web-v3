@@ -135,7 +135,8 @@
 					<div class="footer-links">
 						<?php echo $this->Html->link('XLRstats', 'http://www.xlrstats.com', array('target' => '_blank')); ?> |
 						<?php echo $this->Html->link('BigBrotherBot', 'http://www.bigbrotherbot.net', array('target' => '_blank')); ?> |
-						<?php echo $this->Html->link('Echelon', 'http://www.bigbrotherbot.net/echelon/home', array('target' => '_blank')); ?>
+						<?php echo $this->Html->link('Echelon', 'http://www.bigbrotherbot.net/echelon/home', array('target' => '_blank')); ?> |
+						<?php echo $this->Html->link('IP Geolocation by DB-IP', 'https://db-ip.com', array('target' => '_blank')); ?>
 					</div>
 					<p class="pull-right"><small>
 						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img

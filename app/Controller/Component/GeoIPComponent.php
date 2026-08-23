@@ -14,66 +14,154 @@
  */
 
 App::uses('Component', 'Controller');
+App::import('Vendor', 'MaxMindDbAutoloader', array('file' => 'MaxMind' . DS . 'bootstrap.php'));
+
 /**
  * Class GeoIPComponent
+ *
+ * Country level IP lookups against a DB-IP Lite MMDB database
+ * (https://db-ip.com). The database can be downloaded and updated
+ * from the admin dashboard (Maintenance).
  */
 class GeoIPComponent extends Component {
 
 /**
- * object reference
+ * MaxMind DB Reader instance or null when no database is available
  *
  * @var null
  */
 	public $gi = null;
 
-	//-------------------------------------------------------------------
+/**
+ * Name of the country level database file inside Configure::read('GeoIP.dbPath')
+ *
+ * @var string
+ */
+	public $dbFile = 'dbip-country-lite.mmdb';
+
+//-------------------------------------------------------------------
 
 /**
  * @param Controller $controller
  */
 	public function initialize(Controller $controller) {
-		$settings = array(
-			'res' => APP . WEBROOT_DIR . DS . 'GeoIP.dat', // absolute path
-			'src' => 'geoip.inc', // just the file name
-		);
-		App::import('Vendor', 'GeoIP', array('file' => $settings['src']));
-		$this->gi = geoip_open($settings['res'], GEOIP_STANDARD);
+		$this->gi = $this->_openReader();
 	}
 
-	//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 
 /**
  * @param Controller $controller
  */
 	public function shutdown(Controller $controller) {
-		geoip_close($this->gi); // cleanup
+		$this->gi = null; // release the file handle
 	}
 
-	//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 
 /**
+ * Returns the ISO 3166-1 alpha-2 country code for an address,
+ * '-' when unknown
+ *
  * @param null $address
  * @return bool|string
  */
 	public function country_code($address = null) {
-		$countryCode = geoip_country_code_by_addr($this->gi, $address);
-		if ($countryCode == null) {
-			$countryCode = '-';
+		$record = $this->_record($address);
+		if (!isset($record['country']['iso_code'])) {
+			return '-';
 		}
-		return $countryCode;
+		return $record['country']['iso_code'];
 	}
 
-	//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 
 /**
+ * Returns the country name for an address, 'Unknown' when unknown
+ *
  * @param null $address
  * @return bool|string
  */
 	public function country_name($address = null) {
-		$countryName = geoip_country_name_by_addr($this->gi, $address);
-		if ($countryName == null) {
-			$countryName = 'Unknown';
+		$record = $this->_record($address);
+		if (!isset($record['country']['names']['en'])) {
+			return 'Unknown';
 		}
-		return $countryName;
+		return $record['country']['names']['en'];
+	}
+
+//-------------------------------------------------------------------
+
+/**
+ * Opens the MMDB reader, returns null (instead of failing) when the
+ * database is not downloaded yet or unreadable
+ *
+ * @return null|\MaxMind\Db\Reader
+ */
+	protected function _openReader() {
+		$path = $this->_dbPath();
+		if (!is_readable($path)) {
+			$this->_logMissingOnce('GeoIP.missingCountryDb', 'Country database not found at "' . $path . '". Download it via Dashboard > Maintenance.');
+			return null;
+		}
+		try {
+			return new \MaxMind\Db\Reader($path);
+		} catch (Exception $e) {
+			CakeLog::write('geoip', 'Could not open country database "' . $path . '": ' . $e->getMessage());
+			return null;
+		}
+	}
+
+//-------------------------------------------------------------------
+
+/**
+ * Path to this component's database file
+ *
+ * @return string
+ */
+	protected function _dbPath() {
+		$dir = Configure::read('GeoIP.dbPath');
+		if (empty($dir)) {
+			$dir = APP . 'Vendor' . DS . 'dbip';
+		}
+		return $dir . DS . $this->dbFile;
+	}
+
+//-------------------------------------------------------------------
+
+/**
+ * Looks up an address, returns an empty array on any failure
+ *
+ * @param null $address
+ * @return array
+ */
+	protected function _record($address) {
+		if ($this->gi === null || empty($address)) {
+			return array();
+		}
+		try {
+			$record = $this->gi->get($address);
+			return is_array($record) ? $record : array();
+		} catch (Exception $e) {
+			return array();
+		}
+	}
+
+//-------------------------------------------------------------------
+
+/**
+ * Logs a message to the geoip log at most once per day to avoid
+ * filling up the logs on every request
+ *
+ * @param string $cacheKey
+ * @param string $message
+ */
+	protected function _logMissingOnce($cacheKey, $message) {
+		$last = Cache::read($cacheKey);
+		if ($last !== false && $last > strtotime('-1 day')) {
+			return;
+		}
+		CakeLog::write('geoip', $message);
+		Cache::write($cacheKey, time());
 	}
 }

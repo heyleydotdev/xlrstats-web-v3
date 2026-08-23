@@ -202,6 +202,7 @@
 										'server' => Configure::read('server_id'),
 										'cookiepolicy'
 									)) ?></li>
+								<li><i class="icon-li icon-info-sign"></i><?php echo $this->Html->link('IP Geolocation by DB-IP', 'https://db-ip.com', array('target' => '_blank')); ?></li>
 							</ul>
 						</div>
 					</div>
