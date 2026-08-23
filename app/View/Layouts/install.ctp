@@ -10,7 +10,6 @@
 		echo $this->fetch('css');
 
 		//echo $this->Html->script('jquery-1.11.1.min'); //jQuery library
-		//echo $this->Html->script('jquery.ui.map.full.min.js'); //Google Maps jQuery plugin
 		//echo $this->Html->script('paging'); // bootstrap pagination plugin for dataTables
 		echo $this->Html->script('bootstrap.min'); //twitter bootstrap scripts
 		?>
