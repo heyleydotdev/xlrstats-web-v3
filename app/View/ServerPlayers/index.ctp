@@ -18,29 +18,55 @@
 //pr($serverLocation);
 
 /**
- * Build the image url's, need to be flawless or map won't show the icons.
+ * Build the icon base url, need to be flawless or the map won't show the icons.
  */
-$serverImageUrl = FULL_BASE_URL . $this->request->base . '/' . IMAGES_URL . 'worldmap-icons/server.png';
-$playerImageUrl = FULL_BASE_URL . $this->request->base . '/' . IMAGES_URL . 'worldmap-icons/player.png';
+$iconBaseUrl = $this->request->base . '/' . IMAGES_URL . 'worldmap-icons/';
 
 $serverInfo = $this->requestAction('server_info');
+
+/**
+ * Load Leaflet and OpenStreetMap assets, only this page needs them.
+ */
+$this->Html->css('leaflet', null, array('inline' => false));
+$this->Html->script('leaflet', array('inline' => false));
+
+/**
+ * Build a json array with player markers. Names are html escaped and
+ * invalid positions are skipped, so a single odd player can't break
+ * the whole map.
+ */
+$mapMarkers = array();
+foreach ($playerPositions as $marker) {
+	if (!isset($marker['latitude'], $marker['longitude']) || $marker['latitude'] === '' || $marker['longitude'] === '') {
+		continue;
+	}
+	$mapMarkers[] = array(
+		(float)$marker['latitude'],
+		(float)$marker['longitude'],
+		h($marker['client']),
+	);
+}
 
 ?>
 <script type="text/javascript">
 	$(function() {
-		var startLatLng = new google.maps.LatLng(<?php echo $serverLocation ?>);
-		$('#map_canvas').gmap({'center': startLatLng, 'zoom': 2, 'disableDefaultUI':false, 'mapTypeId': google.maps.MapTypeId.SATELLITE}).bind('init', function() {
+		var iconBase = '<?php echo $iconBaseUrl; ?>';
+		var serverIcon = L.icon({iconUrl: iconBase + 'server.png', iconSize: [32, 37], popupAnchor: [0, -30]});
+		var playerIcon = L.icon({iconUrl: iconBase + 'player.png', iconSize: [32, 37], popupAnchor: [0, -30]});
 
-			$('#map_canvas').gmap('addMarker', { 'type': 'server', 'position': '<?php echo $serverLocation ?>', 'icon': '<?php echo $serverImageUrl ?>', 'bounds': false }).click(function() {
-				$('#map_canvas').gmap('openInfoWindow', {'content': 'Server Location'}, this)});
+		var serverLatLng = '<?php echo $serverLocation; ?>'.split(',');
+		var map = L.map('map_canvas').setView([parseFloat(serverLatLng[0]), parseFloat(serverLatLng[1])], 2);
 
-			<?php foreach ($playerPositions as $marker) { ?>
-				$('#map_canvas').gmap('addMarker', { 'type': 'player', 'position': '<?php echo $marker['latitude'] ?>,<?php echo $marker['longitude'] ?>', 'icon': '<?php echo $playerImageUrl ?>', 'bounds': false}).click(function() {
-					$('#map_canvas').gmap('openInfoWindow', {'content': '<?php echo $marker['client'] ?>'}, this);});
-			<?php } ?>
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
 
-			//$('#map_canvas').gmap('set', 'MarkerClusterer', new MarkerClusterer($('#map_canvas').gmap('get', 'map'), $('#map_canvas').gmap('get', 'markers')));
-			//$('#map_canvas').gmap('find', 'markers', { 'property': 'type', 'value': 'server' }, function(marker, found) {marker.setVisible(found)});
+		L.marker(map.getCenter(), {icon: serverIcon}).addTo(map).bindPopup('Server Location');
+
+		var markers = <?php echo json_encode($mapMarkers); ?>;
+		$.each(markers, function(i, m) {
+			L.marker([m[0], m[1]], {icon: playerIcon}).addTo(map).bindPopup(m[2]);
 		});
 	});
 </script>
@@ -116,9 +142,9 @@ if (empty($serverPlayers)) { ?>
 			if (isset($v['ServerPlayer']['skill'])) {
 				$registeredCount++;
 				$score .= ' <small>(' . $this->Number->format($v['ServerPlayer']['skill'], array(
-						'places' => 0,
+						'places' => 2,
 						'before' => null,
-						'thousands' => '.'
+						'thousands' => ''
 					)) . ')</small>';
 			}
 			if (isset($v['ServerPlayer']['rank'])) {

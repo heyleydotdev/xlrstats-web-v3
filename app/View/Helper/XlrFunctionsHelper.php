@@ -202,6 +202,9 @@ class XlrfunctionsHelper extends Helper {
 		}
 
 		$imagePath = Configure::read('weapons.image_path');
+		if (empty($imagePath)) {
+			return false;
+		}
 		$weaponImage = $imagePath . $weaponImage;
 
 		$imageLink = $this->Html->image($weaponImage, $options);
@@ -257,8 +260,10 @@ class XlrfunctionsHelper extends Helper {
 
 /**
  * Returns easy map name from the game config file.
- * If an easy name is not defined for the map, then it returns
- * the console name.
+ * If an easy name is not defined for the map, CoD style console names
+ * (mp_map_name) are prettified: the mp_ prefix is stripped, underscores
+ * are replaced by spaces and each word is capitalized. Any other name
+ * is returned as is.
  *
  * @param $map console name of the map
  * @return string
@@ -268,6 +273,9 @@ class XlrfunctionsHelper extends Helper {
 
 		if (!$mapName) {
 			$mapName = $map;
+			if (preg_match('/^mp_/', $map)) {
+				$mapName = ucwords(str_replace('_', ' ', substr($map, 3)));
+			}
 		}
 		return $mapName;
 	}
@@ -298,6 +306,9 @@ class XlrfunctionsHelper extends Helper {
 		}
 
 		$imagePath = Configure::read('maps.image_path');
+		if (empty($imagePath)) {
+			return false;
+		}
 		$mapImage = $imagePath . $mapImage;
 
 		$imageOptions = array();
@@ -506,43 +517,6 @@ class XlrfunctionsHelper extends Helper {
 			}
 		}
 		return $topActionData;
-	}
-
-/**
- * @return mixed
- */
-	public function showLicenseIcon() {
-		// check if the cache is disabled
-		if (Configure::read('Cache.disable')) {
-			return '<a href="#" title="page not cached"><i class="icon-unlock-alt text-error"></i></a>&nbsp;';
-		} else {
-			// check the cache
-			$json = Cache::read('licenseKeyInfo', '1week');
-			if (!$json) {
-				$json = Cache::read('licenseKeyInfo', '5min');
-			}
-
-			if (!$json) {
-				$icon = '<i class="icon-question-sign text-error"></i>';
-				$message = __('Unable to retrieve license information');
-			} elseif (!$json['result']['valid']) {
-				$message = $json['error']['message'];
-				$icon = '<i class="icon-warning-sign text-error"></i>';
-			} else {
-				if ($json['result']['type'] == 'F') {
-					$message = __('Free -NON-Commercial- XLRstats License');
-				} else {
-					$message = __('Commercial XLRstats License');
-				}
-				$icon = '<i class="icon-check text-success"></i>';
-			}
-			return $this->Html->link($icon,
-				'http://www.xlrstats.com/pages/xlrstats.com/licensing', array(
-					'target' => '_blank',
-					'escape' => false,
-					'title' => $message
-				));
-		}
 	}
 
 /**

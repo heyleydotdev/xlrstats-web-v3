@@ -45,3 +45,20 @@ $this->set('title_for_layout', __('Maintenance • XLRstats'));
 	);
 	?>
 </div>
+
+<div><blockquote>
+		Download or update the free DB-IP Lite databases used to resolve IP addresses to countries and cities.
+</blockquote><?php
+
+	echo $this->Html->link(
+		'Geo IP Databases',
+		array(
+			'controller' => 'maintenance',
+			'action' => 'admin_geodb'
+		),
+		array(
+			'class' => 'btn btn-info btn-small'
+		)
+	);
+	?>
+</div>

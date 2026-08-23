@@ -81,12 +81,12 @@
 		</thead>
 		<tbody>
 		<tr>
-			<td colspan="8" class="dataTables_empty">Loading data from server</td>
+			<td colspan="4" class="dataTables_empty">Loading data from server</td>
 		</tr>
 		</tbody>
 		<tfoot>
 		<tr>
-			<th colspan="8">
+			<th colspan="4">
 				<i class="icon-info-sign" style="margin-right: 5px;"></i>
 			</th>
 		</tr>

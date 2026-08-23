@@ -214,7 +214,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['kills'], array(
 						'places' => 0,
 						'before' => null,
-						'thousands' => '.'
+						'thousands' => ','
 					)); ?>
 				</h3>
 				<h4><?php echo __('Kills'); ?></h4>
@@ -228,7 +228,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['deaths'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Deaths'); ?></h4>
@@ -238,9 +238,9 @@ $myPage = false;
 				<h4 style="position:relative; top: 15px"><?php echo __('Skill'); ?></h4>
 				<div class="text-x-large">
 					<?php echo $this->Number->format($playerStats['PlayerStat']['skill'], array(
-					'places' => 0,
+					'places' => 2,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ''
 				)); ?>
 				</div>
 			</div>
@@ -250,7 +250,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['assists'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Kill Assist'); ?></h4>
@@ -261,7 +261,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['assistskill'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ''
 				)); ?>
 				</h3>
 				<h4><?php echo __('Assist Skill'); ?></h4>
@@ -272,7 +272,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['rounds'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Rounds'); ?></h4>
@@ -283,7 +283,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['suicides'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Suicides'); ?></h4>
@@ -294,7 +294,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['teamkills'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo ('Team Kills'); ?></h4>
@@ -305,7 +305,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['teamdeaths'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Team Deaths'); ?></h4>
@@ -316,7 +316,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['winstreak'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Win Streak'); ?></h4>
@@ -327,7 +327,7 @@ $myPage = false;
 					<?php echo $this->Number->format($playerStats['PlayerStat']['losestreak'], array(
 					'places' => 0,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ','
 				)); ?>
 				</h3>
 				<h4><?php echo __('Lose Streak'); ?></h4>
@@ -681,20 +681,15 @@ $myPage = false;
 
 	// Tabs
 	$(function() {
-		$("#playerstats").tab(); // initialize tabs
-		$("#playerstats").bind("show", function(e) {
-			var contentID = $(e.target).attr("data-target");
+		$("#playerstats").on("show show.bs.tab", function(e) {
+			var contentID = $(e.target).attr("data-target") || $(e.target).attr("href");
 			var contentURL = $(e.target).attr("href");
 
-			if (typeof(contentURL) != 'undefined') {
+			if (typeof(contentURL) != 'undefined' && contentURL.indexOf('#') !== 0) {
 				// state: has a url to load from
-				$(contentID).load(contentURL, function(){
-					$("#playerstats").tab(); // reinitialize tabs
-				});
-			} else {
-				//state: no url, to show static data
-				$(contentID).tab('show');
+				$(contentID).load(contentURL);
 			}
+			// else: static pane, bootstrap switches it natively
 		});
 		$('#playerstats a:first').tab("show"); // Load and display content for first tab
 	});

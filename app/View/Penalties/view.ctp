@@ -65,6 +65,11 @@
 			); ?>"
 		} );
 	} );
+
+	/* Bootstrap 3 compatibility: unblock modals hidden via the "hide" class */
+	$(function () {
+		$('.modal').removeClass('hide').css('display', 'none');
+	});
 </script>
 
 <div class="playerstats">

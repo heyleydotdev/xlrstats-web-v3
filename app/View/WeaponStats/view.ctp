@@ -26,9 +26,9 @@
 			)); ?>
 		</div>
 		<br />
-		<div><?php echo __('Total kills: ') . $this->Number->format($weaponData['WeaponStat']['kills'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
-		<div><?php echo __('Total teamkills: ') . $this->Number->format($weaponData['WeaponStat']['teamkills'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
-		<div><?php echo __('Total suicides: ') . $this->Number->format($weaponData['WeaponStat']['suicides'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
+		<div><?php echo __('Total kills: ') . $this->Number->format($weaponData['WeaponStat']['kills'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
+		<div><?php echo __('Total teamkills: ') . $this->Number->format($weaponData['WeaponStat']['teamkills'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
+		<div><?php echo __('Total suicides: ') . $this->Number->format($weaponData['WeaponStat']['suicides'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
 		<br />
 		<?php
 		// External weapon link (if available)
@@ -65,8 +65,8 @@
 						'server' => Configure::read('server_id'),
 						$v['PlayerStat']['id']
 					)),
-					$this->Number->format($v['PlayerWeapon']['kills'], array('places' => 0, 'before' => null, 'thousands' => '.')),
-					$this->Number->format($v['PlayerWeapon']['deaths'], array('places' => 0, 'before' => null, 'thousands' => '.')),
+					$this->Number->format($v['PlayerWeapon']['kills'], array('places' => 0, 'before' => null, 'thousands' => ',')),
+					$this->Number->format($v['PlayerWeapon']['deaths'], array('places' => 0, 'before' => null, 'thousands' => ',')),
 				));
 			}
 			?>

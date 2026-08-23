@@ -54,14 +54,6 @@ $pieChart['teamkills']['title'] = __('Top %s Maps You Team Kill With', $pieChart
 $pieChart['teamdeaths']['title'] = __('Top %s Maps You Get Team Killed With', $pieChart['teamdeaths']['count']);
 $pieChart['suicides']['title'] = __('Top %s Maps You Suicide With', $pieChart['suicides']['count']);
 
-// Last pie chart. We'll use this to draw a border bottom or not
-foreach ($pieChart as $key => $value) {
-	if ($value['count'] > 0) {
-		$charts[] = $key;
-	}
-}
-$lastChart = end($charts);
-
 ?>
 <script type="text/javascript" charset="utf-8">
 	/* Set the defaults for DataTables initialisation */
@@ -186,11 +178,34 @@ $lastChart = end($charts);
 	endforeach;
 ?>
 
-	/* Make sure modal box doesn't load the same content */
-	$('body').on('hidden', '.modal', function () {
-		$(this).removeData('modal');
+	/* Make sure modal box doesn't load the same content (Bootstrap 2 and 3 event names) */
+	$('body').on('hidden hidden.bs.modal', '.modal', function () {
+		$(this).removeData('modal').removeData('bs.modal');
 		/* add loading image */
 		$('#map-modal .modal-body').html('<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...');
+	});
+
+	/* Bootstrap 2/3 compatible remote modals: unblock the "hide" class and fetch
+	   content into .modal-body ourselves instead of relying on the version
+	   specific remote injection target */
+	$(function () {
+		$('.modal').removeClass('hide').css('display', 'none');
+	});
+
+	$('body').on('click', '[data-toggle="modal"][data-target]', function (e) {
+		var url = $(this).attr('href');
+		if (!url || url.charAt(0) === '#') {
+			return; // static modal, let bootstrap handle it
+		}
+		var $modal = $($(this).attr('data-target'));
+		if ($modal.length === 0) {
+			return;
+		}
+		e.preventDefault();
+		e.stopPropagation();
+		$modal.find('.modal-body').html('<?php echo $this->Html->image('loading-bar.gif', array('style' => 'margin-left: 286px')); ?> Loading...');
+		$modal.modal('show');
+		$modal.find('.modal-body').load(url);
 	});
 </script>
 
@@ -226,15 +241,26 @@ $lastChart = end($charts);
 
 	<div class="span4 charts-container">
 		<?php
-		foreach($pieChart as $key => $value):
-			if($value['count'] > 0):
-				if($key != $lastChart):
-					$borderBottom = 'border-bottom: 1px solid #EEEDEC;';
-				else:
-					$borderBottom = null;
-				endif;
+		//Collect chart sections with data; fall back to a single placeholder when none has any
+		$chartSections = array();
+		foreach ($pieChart as $key => $value) {
+			if ($value['count'] > 0) {
+				$chartSections[] = $key;
+			}
+		}
+		$renderPlaceholder = empty($chartSections);
+		if ($renderPlaceholder) {
+			$chartSections = array('maps');
+		}
+		foreach ($chartSections as $index => $key):
+			$borderBottom = ($index < count($chartSections) - 1) ? 'border-bottom: 1px solid #EEEDEC;' : null;
+			if (!$renderPlaceholder):
 				?>
 				<div id="<?php echo $key . '-maps'; ?>" style="height: 250px; margin: 0 auto; <?php echo $borderBottom; ?>"></div>
+			<?php else: ?>
+				<div class="chart-placeholder" style="height: 250px;">
+					<p><?php echo __('No data available yet'); ?></p>
+				</div>
 			<?php
 			endif;
 		endforeach; ?>

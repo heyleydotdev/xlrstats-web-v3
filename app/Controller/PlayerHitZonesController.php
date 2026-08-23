@@ -29,6 +29,7 @@ class PlayerHitZonesController extends AppController {
 			'order' => 'PlayerHitZone.kills desc'
 		));
 
+		$kills = array();
 		foreach ($hitZones as $hitZone) {
 			$kills[] = $hitZone['PlayerHitZone']['kills'];
 		}

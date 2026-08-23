@@ -127,7 +127,7 @@
 				} else {
 					$winProbability = '<p class="text-error"><i class="icon-thumbs-down"></i> <strong>' . $this->Number->toPercentage($v['0']['winprobability'] * 100) . '</strong></p>';
 				}
-				$skillGain = $this->NUmber->precision($v['0']['skillgain'], 2);
+				$skillGain = $this->Number->precision($v['0']['skillgain'], 2);
 
 				/* Skill -------------------------------------------------------------------------------------------------*/
 				if ($v['Target']['skill'] >= $v['Killer']['skill']) {
@@ -143,11 +143,11 @@
 					$after = '</strong>';
 				}
 				$skill = $this->Number->format( $v['Target']['skill'], array(
-					'places' => 0,
+					'places' => 2,
 					'before' => $before,
 					'after' => $after,
 					'escape' => false,
-					'thousands' => '.'
+					'thousands' => ''
 				)) . '</p>';
 
 				/* Kills -------------------------------------------------------------------------------------------------*/

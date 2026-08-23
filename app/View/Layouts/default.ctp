@@ -19,27 +19,21 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-		<?php
-		echo $this->Html->charset();
-		?>
+		<?php echo $this->Html->charset();?>
+		<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<![endif]-->
 		<title><?php echo $title_for_layout; ?></title>
 		<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('xlrstats.generic');
-		echo $this->Html->css('http://fonts.googleapis.com/css?family=Lato:400,700');
-		echo $this->Html->css('http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 
-		echo $this->Html->script('modernizr-2.6.2-respond-1.1.0.min'); //Modernizr
-		echo $this->Html->script('jquery-1.8.2.min'); //jQuery library
+		echo $this->Html->script('jquery-1.11.1.min'); //jQuery library
 		echo $this->Html->script('jquery.dataTables.min'); //dataTables jQuery plugin
-		echo $this->Html->script('http://maps.google.com/maps/api/js?sensor=true'); //Google Maps jQuery plugin
-		echo $this->Html->script('jquery.ui.map.full.min.js'); //Google Maps jQuery plugin
-		echo $this->Html->script('markerclusterer'); //for Google Maps jQuery plugin
 		echo $this->Html->script('paging'); // bootstrap pagination plugin for dataTables
 		echo $this->Html->script('bootstrap.min'); //twitter bootstrap scripts
 		/* If we use cookies we must ask user permission by European law */
@@ -50,7 +44,7 @@
 
 		//To work with less files, uncomment two lines below and comment out the xlrstats.generic.css line above (echo $this->Html->css('xlrstats.generic');)
 		//echo $this->Html->css('less/xlrstats.generic.less?', 'stylesheet/less');
-		//echo $this->Html->script('less-1.5.0.min'); //Just for development
+		//echo $this->Html->script('less.min'); //Just for development
 
 		echo $this->fetch('script');
 
@@ -155,6 +149,7 @@
 						<div class="span3">
 							<h4>Origination</h4>
 							<ul class="icons-ul">
+								<li><i class="icon-li icon-ok"></i><?php echo $this->Html->link('Donate to the project', 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=donations%40bigbrotherbot.net', array('target' => '_blank')); ?></li>
 								<li><i class="icon-li icon-ok"></i><?php echo $this->Html->link('XLRstats', 'http://www.xlrstats.com', array('target' => '_blank')); ?></li>
 								<li><i class="icon-li icon-ok"></i><?php echo $this->Html->link('BigBrotherBot', 'http://www.bigbrotherbot.net', array('target' => '_blank')); ?></li>
 								<li><i class="icon-li icon-ok"></i><?php echo $this->Html->link('Echelon', 'http://www.bigbrotherbot.net/echelon/home', array('target' => '_blank')); ?></li>
@@ -207,13 +202,13 @@
 										'server' => Configure::read('server_id'),
 										'cookiepolicy'
 									)) ?></li>
+								<li><i class="icon-li icon-info-sign"></i><?php echo $this->Html->link('IP Geolocation by DB-IP', 'https://db-ip.com', array('target' => '_blank')); ?></li>
 							</ul>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span12">
 							<p class="text-center">
-								<?php echo $this->XlrFunctions->showLicenseIcon() ?>
 								<small>
 									<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img
 											alt="Creative Commons License" style="border-width:0; vertical-align: text-bottom"

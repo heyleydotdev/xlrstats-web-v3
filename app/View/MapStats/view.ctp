@@ -22,9 +22,9 @@
 			)); ?>
 		</div>
 		<br />
-		<div><?php echo __('Total kills: ') . $this->Number->format($mapData['MapStat']['kills'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
-		<div><?php echo __('Total teamkills: ') . $this->Number->format($mapData['MapStat']['teamkills'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
-		<div><?php echo __('Total suicides: ') . $this->Number->format($mapData['MapStat']['suicides'], array('places' => 0, 'before' => null, 'thousands' => '.')); ?></div>
+		<div><?php echo __('Total kills: ') . $this->Number->format($mapData['MapStat']['kills'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
+		<div><?php echo __('Total teamkills: ') . $this->Number->format($mapData['MapStat']['teamkills'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
+		<div><?php echo __('Total suicides: ') . $this->Number->format($mapData['MapStat']['suicides'], array('places' => 0, 'before' => null, 'thousands' => ',')); ?></div>
 		<br />
 		<?php
 		// External map link (if available)
@@ -61,8 +61,8 @@
 						'server' => Configure::read('server_id'),
 						$v['PlayerStat']['id']
 					)),
-					$this->Number->format($v['PlayerMap']['kills'], array('places' => 0, 'before' => null, 'thousands' => '.')),
-					$this->Number->format($v['PlayerMap']['deaths'], array('places' => 0, 'before' => null, 'thousands' => '.')),
+					$this->Number->format($v['PlayerMap']['kills'], array('places' => 0, 'before' => null, 'thousands' => ',')),
+					$this->Number->format($v['PlayerMap']['deaths'], array('places' => 0, 'before' => null, 'thousands' => ',')),
 				));
 			}
 			?>
