@@ -116,9 +116,9 @@ $urls = json_encode(array(
 		'action' => 'admin_geoDbUpdate',
 	)),
 ));
-$this->Html->scriptBlock("var GEOIP_URLS = " . $urls . ";", array('inline' => false));
 ?>
 <script type="text/javascript">
+var GEOIP_URLS = <?php echo $urls; ?>;
 (function ($) {
 
 	function formatBytes(bytes) {
