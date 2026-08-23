@@ -20,3 +20,11 @@
     height: auto;
   }
 }
+
+// Bootstrap 3 JS compatibility: collapse plugin drives animation via .collapsing
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  .transition(height .35s ease);
+}

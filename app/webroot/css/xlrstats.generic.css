@@ -1455,3 +1455,5 @@ div.inner-details { display: none }
     font-weight: 700;
     src: local('Cuprum Bold Italic'), local('Cuprum-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/cuprum/v5/qoCTdBYim27O_DVk90C7-WOb2gHztoQeulij-1lvl-8.woff) format('woff');
 }
+/* Bootstrap 3 JS compatibility: collapse transition (bootstrap.min.js v3.3.7 expects .collapsing rules) */
+.collapsing { position: relative; height: 0; overflow: hidden; -webkit-transition: height .35s ease; transition: height .35s ease }

@@ -328,3 +328,6 @@ div.inner-details{display:none;}
 .tooltip.right .tooltip-arrow{border-top-color:#c02d01;}
 .tooltip.left .tooltip-arrow{border-top-color:#c02d01;}
 .tooltip.bottom .tooltip-arrow{border-top-color:#c02d01;}
+
+/* Bootstrap 3 JS compatibility: collapse transition (bootstrap.min.js v3.3.7 expects .collapsing rules) */
+.collapsing{position:relative;height:0;overflow:hidden;-webkit-transition-property:height,visibility;transition-property:height,visibility;-webkit-transition-duration:.35s;transition-duration:.35s;-webkit-transition-timing-function:ease;transition-timing-function:ease;}

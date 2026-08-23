@@ -1174,3 +1174,6 @@ footer{background:#eee;border-top:1px solid #ccc;height:40px}
 #options td{line-height:33px}
 div.dataTables_filter label{float:right}
 @media (max-width:767px){body{padding:0} .logo{margin-left:-13px} .navbar-static-top{margin-left:0;margin-right:0}}@media (max-width:979px){.wrap{padding:0 !important} .sidebar{background:#eee;border:0;width:100%;position:relative} .main-content{margin:0;border:none} .sidebar-content ul{margin:0 !important}.sidebar-content ul li>a{font-weight:normal !important}}
+
+/* Bootstrap 3 JS compatibility: collapse transition (bootstrap.min.js v3.3.7 expects .collapsing rules) */
+.collapsing{position:relative;height:0;overflow:hidden;-webkit-transition-property:height,visibility;transition-property:height,visibility;-webkit-transition-duration:.35s;transition-duration:.35s;-webkit-transition-timing-function:ease;transition-timing-function:ease}
