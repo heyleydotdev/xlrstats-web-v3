@@ -1226,7 +1226,7 @@ body { background: #33383e url("../img/background.gif") repeat; font-family: "Ro
 .server-info .server-name-compact .game-icon { font-family: "Roboto Condensed", sans-serif; cursor: pointer; margin-right: 3px }
 .server-info .server-info-box { background: #ffffff; border: 1px solid #e2e3e5; display: block; height: 50px; padding: 0 15px; text-align: right; margin-bottom: 10px }
 .server-info .server-info-box h5 { font-family: 'Cuprum', sans-serif; font-weight: bold; margin: 8px 0 3px; text-align: right; line-height: 14px; color: #8e9ab2 }
-.server-info .server-info-box i { float: left; margin-top: -36px; color: #8e9ab2 }
+.server-info .server-info-box i { float: left; margin-top: -40px; color: #8e9ab2 }
 .server-info .server-info-buttons { padding: 15px 0; text-align: center }
 .footer { background: #252930; border-top: 10px solid #1a1d22; margin-top: 70px; padding: 30px 0 5px; color: #8e9ab2 }
 .footer a { color: #8e9ab2 }

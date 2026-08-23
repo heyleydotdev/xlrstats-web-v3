@@ -22,7 +22,7 @@ a:hover{color:#ffffff;}
 .server-info .server-name-compact{display:box;height:50px;background:#222222;border-top:1px solid #5d5e60;border-bottom:1px solid #5d5e60;margin-bottom:20px;}.server-info .server-name-compact h1{font-family:'Cuprum',sans-serif;text-align:center;line-height:30px;font-size:20px;}
 .server-info .server-name-compact .game-icon{cursor:pointer;margin-bottom:3px;}
 .server-info .server-info-box{background:#333333;border:1px solid #5d5e60;display:block;height:50px;padding:0 15px;text-align:right;margin-bottom:10px;-moz-box-shadow:inset 0 0 10px #000000;-webkit-box-shadow:inset 0 0 10px #000000;box-shadow:inset 0 0 10px #000000;}.server-info .server-info-box h5{font-family:'Cuprum',sans-serif;font-weight:bold;margin:8px 0 3px;text-align:right;line-height:14px;color:#cecece;}
-.server-info .server-info-box img{float:left;margin-top:-36px;}
+.server-info .server-info-box img{float:left;margin-top:-36px;}.server-info .server-info-box i{float:left;margin-top:-40px;color:#cecece;}
 .server-info .server-info-buttons{padding:15px 0px;text-align:center;}
 .footer{background:#252930;border-top:10px solid #1a1d22;margin-top:70px;padding:30px 0px 5px;color:#cecece;}.footer a{color:#cecece;}
 .navigation{font-family:'Cuprum',sans-serif;font-size:16px;}.navigation .navbar .nav{margin:0 10px 0 0px;}
