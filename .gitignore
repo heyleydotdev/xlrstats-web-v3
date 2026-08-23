@@ -11,9 +11,4 @@ app/tmp/*
 /app/[Vv]iew/[Pp]ages/xlrstats.com
 /lib/[Cc]ake/[Cc]onsole/[Tt]emplates/skel/tmp/
 
-# Geo IP databases (downloaded via Dashboard > Maintenance)
-/app/[Vv]endor/dbip/*.mmdb
-/app/[Vv]endor/dbip/*.gz
-/app/[Vv]endor/dbip/*.tmp
-
 

@@ -115,14 +115,15 @@ class GeoIPComponent extends Component {
 //-------------------------------------------------------------------
 
 /**
- * Path to this component's database file
+ * Path to this component's database file. Defaults to the writable
+ * app/tmp/geoip folder and can be overridden with Configure::read('GeoIP.dbPath')
  *
  * @return string
  */
 	protected function _dbPath() {
 		$dir = Configure::read('GeoIP.dbPath');
 		if (empty($dir)) {
-			$dir = APP . 'Vendor' . DS . 'dbip';
+			$dir = APP . 'tmp' . DS . 'geoip';
 		}
 		return $dir . DS . $this->dbFile;
 	}
