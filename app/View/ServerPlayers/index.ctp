@@ -137,7 +137,7 @@ if (empty($serverPlayers)) { ?>
 			if (isset($v['ServerPlayer']['Score'])) {
 				$score = '<strong>' . $v['ServerPlayer']['Score'] . '</strong>';
 			} else {
-				$score = 'n.a.';
+				$score = 'N/A';
 			};
 			if (isset($v['ServerPlayer']['skill'])) {
 				$registeredCount++;

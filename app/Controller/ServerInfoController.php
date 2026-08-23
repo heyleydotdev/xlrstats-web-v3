@@ -130,13 +130,13 @@ class ServerInfoController extends AppController {
 
 		$this->WeaponStat->unbindModel(array('hasMany' => array('PlayerWeapon')));
 		$favWeapon = $this->WeaponStat->find('first', array('order' => 'kills DESC'));
-		$result['favorite_weapon'] = array_key_exists('WeaponStat', $favWeapon) ? $favWeapon['WeaponStat']['name'] : 'n.a.';
+		$result['favorite_weapon'] = array_key_exists('WeaponStat', $favWeapon) ? $favWeapon['WeaponStat']['name'] : 'N/A';
 		$result['favorite_weapon_id'] = array_key_exists('WeaponStat', $favWeapon) ? $favWeapon['WeaponStat']['id'] : '';
 		$this->MapStat->unbindModel(array('hasMany' => array('PlayerMap')));
 		$curMap = $this->MapStat->findByName($result['Map']);
 		$result['current_map_id'] = array_key_exists('MapStat', $curMap) ? $curMap['MapStat']['id'] : '';
 		$favMap = $this->MapStat->find('first', array('order' => 'rounds DESC'));
-		$result['favorite_map'] = array_key_exists('MapStat', $favMap) ? $favMap['MapStat']['name'] : 'n.a.';
+		$result['favorite_map'] = array_key_exists('MapStat', $favMap) ? $favMap['MapStat']['name'] : 'N/A';
 		$result['favorite_map_id'] = array_key_exists('MapStat', $favMap) ? $favMap['MapStat']['id'] : '';
 
 		//pr($result);

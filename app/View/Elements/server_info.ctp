@@ -289,26 +289,34 @@ $playerNames = $this->requestAction('server_players');
 	<div class="span3">
 		<div class="server-info-box">
 			<h5>FAVORITE WEAPON</h5>
-			<div class="server-info-value"><?php echo $this->Html->link($this->XlrFunctions->getWeaponName($serverInfo['favorite_weapon']), array(
+			<div class="server-info-value"><?php if (!empty($serverInfo['favorite_weapon_id'])) {
+				echo $this->Html->link($this->XlrFunctions->getWeaponName($serverInfo['favorite_weapon']), array(
 					'plugin' => null,
 					'controller' => 'weapon_stats',
 					'action' => 'view',
 					'server' => Configure::read('server_id'),
 					$serverInfo['favorite_weapon_id']
-				)); ?></div>
+				));
+			} else {
+				echo $this->XlrFunctions->getWeaponName($serverInfo['favorite_weapon']);
+			} ?></div>
 			<i class="icon-2x icon-trophy"></i>
 		</div>
 	</div>
 	<div class="span3">
 		<div class="server-info-box">
 			<h5>FAVORITE MAP</h5>
-			<div class="server-info-value"><?php echo $this->Html->link($this->XlrFunctions->getMapName($serverInfo['favorite_map']), array(
+			<div class="server-info-value"><?php if (!empty($serverInfo['favorite_map_id'])) {
+				echo $this->Html->link($this->XlrFunctions->getMapName($serverInfo['favorite_map']), array(
 					'plugin' => null,
 					'controller' => 'map_stats',
 					'action' => 'view',
 					'server' => Configure::read('server_id'),
 					$serverInfo['favorite_map_id']
-				)); ?></div>
+				));
+			} else {
+				echo $this->XlrFunctions->getMapName($serverInfo['favorite_map']);
+			} ?></div>
 			<i class="icon-2x icon-trophy"></i>
 		</div>
 	</div>
