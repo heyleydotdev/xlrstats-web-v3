@@ -103,7 +103,7 @@ foreach ($opponents as $k => $v) {
 	} else {
 		$winProbability = '<p class="text-error"><i class="icon-thumbs-down"></i> <strong>' . $this->Number->toPercentage($v['0']['winprobability'] * 100) . '</strong></p>';
 	}
-	$skillGain = $this->NUmber->precision($v['0']['skillgain'], 2);
+	$skillGain = $this->Number->precision($v['0']['skillgain'], 2);
 
 	/* Skill -------------------------------------------------------------------------------------------------*/
 	if ($v['Target']['skill'] >= $v['Killer']['skill']) {
@@ -112,9 +112,9 @@ foreach ($opponents as $k => $v) {
 		$skillCompareIcon = '<p class="text-success"><i class="icon-hand-down"></i><strong>';
 	}
 	$skill = $this->Number->format( $v['Target']['skill'], array(
-		'places' => 0,
+		'places' => 2,
 		'before' => null,
-		'thousands' => '.'
+		'thousands' => ''
 	)) . '</strong></p>';
 
 	/* Kills -------------------------------------------------------------------------------------------------*/

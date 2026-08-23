@@ -140,14 +140,14 @@ if ($opponents['Killer']['winprobability'] >= 0.5) {
 } else {
 	$winProbabilityKiller = '<p class="text-error"><i class="icon-thumbs-down"></i> <strong>' . $this->Number->toPercentage($opponents['Killer']['winprobability'] * 100) . '</strong></p>';
 }
-$skillGainKiller = $this->NUmber->precision($opponents['Killer']['skillgain'], 2);
+$skillGainKiller = $this->Number->precision($opponents['Killer']['skillgain'], 2);
 
 if ($opponents['Target']['winprobability'] >= 0.5) {
 	$winProbabilityTarget = '<p class="text-success"><i class="icon-thumbs-up"></i> <strong>' . $this->Number->toPercentage($opponents['Target']['winprobability'] * 100) . '</strong></p>';
 } else {
 	$winProbabilityTarget = '<p class="text-error"><i class="icon-thumbs-down"></i> <strong>' . $this->Number->toPercentage($opponents['Target']['winprobability'] * 100) . '</strong></p>';
 }
-$skillGainTarget = $this->NUmber->precision($opponents['Target']['skillgain'], 2);
+$skillGainTarget = $this->Number->precision($opponents['Target']['skillgain'], 2);
 
 
 /* Skill -------------------------------------------------------------------------------------------------*/
@@ -159,14 +159,14 @@ if ($opponents['Killer']['skill'] >= $opponents['Target']['skill']) {
 	$skillCompareIconTarget = '<p class="text-success"><i class="icon-hand-up"></i> <strong>';
 }
 $skillKiller = $this->Number->format( $opponents['Killer']['skill'], array(
-	'places' => 0,
+	'places' => 2,
 	'before' => null,
-	'thousands' => '.'
+	'thousands' => ''
 )) . '</strong></p>';
 $skillTarget = $this->Number->format( $opponents['Target']['skill'], array(
-	'places' => 0,
+	'places' => 2,
 	'before' => null,
-	'thousands' => '.'
+	'thousands' => ''
 )) . '</strong></p>';
 
 /* Ratio -------------------------------------------------------------------------------------------------*/
@@ -180,12 +180,12 @@ if ($opponents['Killer']['ratio'] >= $opponents['Target']['ratio']) {
 $ratioKiller = $this->Number->format( $opponents['Killer']['ratio'], array(
 	'places' => 2,
 	'before' => null,
-	'thousands' => '.'
+	'thousands' => ''
 )) . '</strong></p>';
 $ratioTarget = $this->Number->format( $opponents['Target']['ratio'], array(
 	'places' => 2,
 	'before' => null,
-	'thousands' => '.'
+	'thousands' => ''
 )) . '</strong></p>';
 
 /* Kills -------------------------------------------------------------------------------------------------*/

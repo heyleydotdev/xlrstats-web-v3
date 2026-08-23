@@ -110,9 +110,9 @@ for ($i = 0; $i < $count; $i++) {
 		// Skill
 		if ($k == 2) {
 			$v = '<b>' . $this->Number->format($v, array(
-					'places' => 0,
+					'places' => 2,
 					'before' => null,
-					'thousands' => '.'
+					'thousands' => ''
 				)) . '</b>';
 		}
 		// Ratio

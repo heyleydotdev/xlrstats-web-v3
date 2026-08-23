@@ -270,7 +270,7 @@ $playerNames = $this->requestAction('server_players');
 			<div class="server-info-value"><?php echo $this->Number->format($serverInfo['total_players'], array(
 				'places' => 0,
 				'before' => null,
-				'thousands' => '.'
+				'thousands' => ','
 			)); ?></div>
 			<i class="icon-2x icon-user"></i>
 		</div>
@@ -281,7 +281,7 @@ $playerNames = $this->requestAction('server_players');
 			<div class="server-info-value"><?php echo $this->Number->format($serverInfo['total_kills'], array(
 				'places' => 0,
 				'before' => null,
-				'thousands' => '.'
+				'thousands' => ','
 			)); ?></div>
 			<i class="icon-2x icon-bullseye"></i>
 		</div>

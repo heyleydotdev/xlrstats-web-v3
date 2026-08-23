@@ -169,9 +169,9 @@ $this->set('title_for_layout', __('XLRstats • %s', $serverName));
 									<?php
 									//Skill
 									echo $this->Number->format($player[2], array(
-									'places' => 0,
+									'places' => 2,
 									'before' => null,
-									'thousands' => '.'
+									'thousands' => ''
 								)); ?></td>
 								<?php if ($detailedStats[$i]): ?>
 								<td><?php
@@ -179,21 +179,21 @@ $this->set('title_for_layout', __('XLRstats • %s', $serverName));
 									echo $this->Number->format($player[4], array(
 									'places' => 0,
 									'before' => null,
-									'thousands' => '.'
+									'thousands' => ','
 								)); ?></td>
 								<td><?php
 									//Deaths
 									echo $this->Number->format($player[5], array(
 									'places' => 0,
 									'before' => null,
-									'thousands' => '.'
+									'thousands' => ','
 								)); ?></td>
 								<td><?php
 									//Rounds
 									echo $this->Number->format($player[8], array(
 									'places' => 0,
 									'before' => null,
-									'thousands' => '.'
+									'thousands' => ','
 								)); ?></td>
 								<td><?php
 									//Win Streak
