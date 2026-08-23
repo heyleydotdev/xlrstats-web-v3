@@ -63,6 +63,11 @@ $(document).ready(function() {
     /**********************************************
      * Options Page X-editable
      **********************************************/
+        //Inline editing mode
+        if ($.fn.editable) {
+            $.fn.editable.defaults.mode = 'inline';
+        }
+
         //Text fields
     $(	'#min_connections, #disqus_shortname, #opponents_count, #tos_organisation, #tos_country, #homelink, ' +
         '#google_analytics_account, #max_days, #theme, #license, #ban_dispute_link, #min_kills, #table_playerstats, ' +

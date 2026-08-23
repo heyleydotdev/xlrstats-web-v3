@@ -115,7 +115,6 @@ class AppController extends Controller {
 		$this->loadGameConfig();
 		$this->getServerGroupId();
 		$this->checkAuthorization();
-		$this->checkLicense();
 		/* We check authorization here to display dashboard link in login menu or not */
 		$this->isAuthorized();
 		/* Check if we need to disable/enable Caching for this controller. */
@@ -367,19 +366,6 @@ class AppController extends Controller {
 		}
 		$this->set('isAuthorized', false);
 		return false;
-	}
-
-	//-------------------------------------------------------------------
-
-/**
- * Checks license
- */
-	public function checkLicense() {
-		$invCookie = $this->Cookie->read('license_invalid');
-		if (!$this->XlrFunctions->isLicenseValid() && !isset($invCookie)) {
-			$this->Session->setFlash(__('This is an unlicensed version. Please visit <a href="http://www.xlrstats.com/pages/xlrstats.com/licensing">the XLRstats licensing page</a> for more info.'), null, null, 'error');
-			$this->Cookie->write('license_invalid', 'shown', false, '1 day');
-		}
 	}
 
 	//-------------------------------------------------------------------

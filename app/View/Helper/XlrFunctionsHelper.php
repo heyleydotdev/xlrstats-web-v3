@@ -520,43 +520,6 @@ class XlrfunctionsHelper extends Helper {
 	}
 
 /**
- * @return mixed
- */
-	public function showLicenseIcon() {
-		// check if the cache is disabled
-		if (Configure::read('Cache.disable')) {
-			return '<a href="#" title="page not cached"><i class="icon-unlock-alt text-error"></i></a>&nbsp;';
-		} else {
-			// check the cache
-			$json = Cache::read('licenseKeyInfo', '1week');
-			if (!$json) {
-				$json = Cache::read('licenseKeyInfo', '5min');
-			}
-
-			if (!$json) {
-				$icon = '<i class="icon-question-sign text-error"></i>';
-				$message = __('Unable to retrieve license information');
-			} elseif (!$json['result']['valid']) {
-				$message = $json['error']['message'];
-				$icon = '<i class="icon-warning-sign text-error"></i>';
-			} else {
-				if ($json['result']['type'] == 'F') {
-					$message = __('Free -NON-Commercial- XLRstats License');
-				} else {
-					$message = __('Commercial XLRstats License');
-				}
-				$icon = '<i class="icon-check text-success"></i>';
-			}
-			return $this->Html->link($icon,
-				'http://www.xlrstats.com/pages/xlrstats.com/licensing', array(
-					'target' => '_blank',
-					'escape' => false,
-					'title' => $message
-				));
-		}
-	}
-
-/**
  * @param $data
  * @return string
  */

@@ -148,8 +148,6 @@
 					</small></p>
 					<p>
 						<?php
-						echo $this->XlrFunctions->showLicenseIcon();
-						echo '&nbsp';
 						echo $this->Html->image('cake.power.gif', array('alt' => 'CakePHP'));
 						echo '&nbsp';
 						echo $this->Html->link($this->Html->image('logohighchartssm.png', array(

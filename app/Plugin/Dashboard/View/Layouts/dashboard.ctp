@@ -77,9 +77,8 @@
 
 				<!-- Main Content -->
 				<div class="main-content">
-					<?php echo $this->TwitterBootstrap->flashes(array('closable' => true)); ?>
-					<?php echo $this->element('insert_license'); ?>
-					<?php echo $this->fetch('content'); ?>
+				<?php echo $this->TwitterBootstrap->flashes(array('closable' => true)); ?>
+				<?php echo $this->fetch('content'); ?>
 				</div>
 				<!-- /Main Content Ends -->
 

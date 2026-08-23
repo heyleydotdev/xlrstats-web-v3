@@ -209,7 +209,6 @@
 					<div class="row">
 						<div class="span12">
 							<p class="text-center">
-								<?php echo $this->XlrFunctions->showLicenseIcon() ?>
 								<small>
 									<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img
 											alt="Creative Commons License" style="border-width:0; vertical-align: text-bottom"
